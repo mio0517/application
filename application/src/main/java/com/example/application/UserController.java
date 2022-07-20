@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,25 +46,9 @@ public class UserController {
 
   @GetMapping("/user/save")
   public String save(Model m,
-  @RequestParam("name") String name,
-  @RequestParam("date") String date,
-  @RequestParam("time") String time,
-  @RequestParam("people") int people,
-  @RequestParam("tel") String tel
+  @ModelAttribute UserEntity user
   ) {
-    m.addAttribute("name", name);
-    m.addAttribute("date", date);
-    m.addAttribute("time", time);
-    m.addAttribute("people", people);
-    m.addAttribute("tel", tel);
-
-    UserEntity user = new UserEntity();
-    user.setName(name);
-    user.setDate(date);
-    user.setTime(time);
-    user.setPeople(people);
-    user.setTel(tel);
-
+    m.addAttribute("user", user);
     userRepository.save(user);
 
     return "redirect:/user/show";
