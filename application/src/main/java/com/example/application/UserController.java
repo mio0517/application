@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -16,8 +15,8 @@ public class UserController {
   private UserRepository userRepository;
   @RequestMapping("/user/show")
   public String list(Model m){
-  List<UserEntity> list = userRepository.findAll();
 
+  List<UserEntity> list = userRepository.findAll();
     m.addAttribute("userList", list); 
 
     return "/show";
@@ -32,5 +31,13 @@ public class UserController {
 
     return "/detail";
   }
-  
+
+  @RequestMapping("user/new")
+  public String regist(Model m) {
+
+    List<UserEntity> list = userRepository.findAll();
+    m.addAttribute("user", list);
+
+    return "/new";
+  }  
 }
