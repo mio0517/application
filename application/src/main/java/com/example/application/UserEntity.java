@@ -12,20 +12,20 @@ public class UserEntity {
   private String name;
   private String genre;
   private String address;
-  private int tell;
+  private int tel;
   private Integer time;
-  private Integer seat;
+  private Integer seats;
 
   public UserEntity() {}
 
-  public UserEntity(Integer id, String name, String genre, String address, int tell, Integer time, Integer seat) {
+  public UserEntity(Integer id, String name, String genre, String address, int tel, Integer time, Integer seats) {
     this.id = id;
     this.name = name;
     this.genre = genre;
     this.address = address;
-    this.tell = tell;
+    this.tel = tel;
     this.time = time;
-    this.seat = seat;
+    this.seats = seats;
   }
 
   public Integer getId() {
@@ -53,10 +53,10 @@ public class UserEntity {
     this.address = address;
   }
   public int getTell() {
-    return tell;
+    return tel;
   }
-  public void setTell(int tell) {
-    this.tell = tell;
+  public void setTell(int tel) {
+    this.tel = tel;
   }
   public Integer getTime() {
     return time;
@@ -65,10 +65,10 @@ public class UserEntity {
     this.time = time;
   }
   public Integer getSeat() {
-    return seat;
+    return seats;
   }
-  public void setSeat(Integer seat) {
-    this.seat = seat;
+  public void setSeat(Integer seats) {
+    this.seats = seats;
   }
 
 }
