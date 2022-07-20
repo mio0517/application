@@ -53,4 +53,14 @@ public class UserController {
 
     return "redirect:/user/show";
   }
+
+  @RequestMapping("/user/userinfo")
+  public String info(Model m){
+
+  List<UserEntity> list = userRepository.findAll();
+    m.addAttribute("userList", list); 
+
+    return "/userinfo";
+
+  }
 }
