@@ -1,8 +1,9 @@
 package com.example.application;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 @Table(name="list")
@@ -12,19 +13,19 @@ public class UserEntity {
   private String name;
   private String genre;
   private String address;
-  private int tel;
-  private Integer time;
+  private String tel;
+  private String opening;
   private Integer seats;
 
   public UserEntity() {}
 
-  public UserEntity(Integer id, String name, String genre, String address, int tel, Integer time, Integer seats) {
+  public UserEntity(Integer id, String name, String genre, String address, String tel, String opening, Integer seats) {
     this.id = id;
     this.name = name;
     this.genre = genre;
     this.address = address;
     this.tel = tel;
-    this.time = time;
+    this.opening = opening;
     this.seats = seats;
   }
 
@@ -52,22 +53,22 @@ public class UserEntity {
   public void setAddress(String address) {
     this.address = address;
   }
-  public int getTell() {
+  public String getTel() {
     return tel;
   }
-  public void setTell(int tel) {
+  public void setTel(String tel) {
     this.tel = tel;
   }
-  public Integer getTime() {
-    return time;
+  public String getOpening() {
+    return opening;
   }
-  public void setTime(Integer time) {
-    this.time = time;
+  public void setOpening(String opening) {
+    this.opening = opening;
   }
-  public Integer getSeat() {
+  public Integer getSeats() {
     return seats;
   }
-  public void setSeat(Integer seats) {
+  public void setSeats(Integer seats) {
     this.seats = seats;
   }
 

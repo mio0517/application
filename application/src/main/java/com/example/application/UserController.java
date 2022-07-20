@@ -19,7 +19,7 @@ public class UserController {
 
     m.addAttribute("userList", list); 
 
-    return "/user/show";
+    return "/show";
 
   }
   
