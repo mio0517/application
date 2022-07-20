@@ -7,6 +7,7 @@ CREATE TABLE `sample_db`.`info` (
   `time` VARCHAR(255),
   `people` INTEGER,
   `tel1` VARCHAR(255),
+  `favorite` INTEGER,
   PRIMARY KEY (`id`));
 
-  INSERT INTO `sample_db`.`info` (`id`, `name1`, `date`, `time`, `people`, `tel1`) VALUES ('1', '太郎', '7/19', '18:00~', '5', '111-222-3333');
+  INSERT INTO `sample_db`.`info` (`id`, `name1`, `date`, `time`, `people`, `tel1`, `favorite`) VALUES ('1', '太郎', '7/19', '18:00~', '5', '111-222-3333', '1');
