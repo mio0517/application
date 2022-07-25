@@ -17,23 +17,23 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
   private UserRepository2 userRepository2;
-  @RequestMapping("/user/show")
+  @RequestMapping("user/show")
   public String list(Model m){
 
   List<UserEntity> list = userRepository.findAll();
     m.addAttribute("userList", list); 
 
-    return "/show";
+    return "user/show";
 
   }
 
-  @RequestMapping("/user/detail")
+  @RequestMapping("user/detail")
   public String detail(Model m) {
 
     List<UserEntity> list = userRepository.findAll();
     m.addAttribute("user", list);
 
-    return "/detail";
+    return "user/detail";
   }
 
   @RequestMapping("user/new")
@@ -70,7 +70,7 @@ public class UserController {
   }
 
 
-  @GetMapping("/user/save")
+  @GetMapping("user/save")
   public String save(Model m,
   @ModelAttribute UserEntity user
   ) {
@@ -86,7 +86,7 @@ public class UserController {
   List<UserEntity> list = userRepository.findAll();
     m.addAttribute("userList", list); 
 
-    return "/userinfo";
+    return "user/userinfo";
 
   }
 }
