@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
   @Autowired
   private UserRepository userRepository;
+
+  @Autowired
   private UserRepository2 userRepository2;
   @RequestMapping("user/show")
   public String list(Model m){
@@ -92,15 +94,15 @@ public class UserController {
   //   return "redirect:/user/show";
   // }
 
-  // @RequestMapping("user/save")
-  // public String save(Model m){
+  @RequestMapping("user/save")
+  public String save(Model m){
 
-  // List<UserEntity2> list = userRepository2.findAll();
-  //   m.addAttribute("userSave", list); 
+  List<UserEntity2> list = userRepository2.findAll();
+    m.addAttribute("userSave", list); 
 
-  //   return "user/save";
+    return "user/save";
 
-  // }
+  }
 
   @RequestMapping("/user/userinfo")
   public String info(Model m){
