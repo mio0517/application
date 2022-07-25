@@ -36,16 +36,24 @@ public class UserController {
     return "user/detail";
   }
 
+  // @RequestMapping("user/new")
+  // public String create(Model m) {
+
+  //   List<UserEntity> list = userRepository.findAll();
+  //   m.addAttribute("user", list);
+
+  //   return "/new";
+  // }  
+
   @RequestMapping("user/new")
-  public String create(Model m) {
+  public String usernew(Model m) {
 
-    List<UserEntity> list = userRepository.findAll();
-    m.addAttribute("user", list);
+    m.addAttribute("userData", new UserEntity2());
 
-    return "/new";
-  }  
+    return "user/new";
+  }
 
-  @GetMapping("user/new")
+  @GetMapping("user/create")
   public String usercreate(Model m,
   @RequestParam(name = "name1", required = false) String name1,
   @RequestParam(name = "date", required = false) String date,
