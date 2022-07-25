@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,11 +29,12 @@ public class UserController {
 
   }
 
-  @RequestMapping("user/detail")
-  public String detail(Model m) {
+  @RequestMapping("user/{id}/detail")
+  public String detail(Model m,
+  @PathVariable Integer id) {
 
-    List<UserEntity> list = userRepository.findAll();
-    m.addAttribute("user", list);
+    UserEntity list =userRepository.findById(id).get();
+    m.addAttribute("userInfo", list);
 
     return "user/detail";
   }

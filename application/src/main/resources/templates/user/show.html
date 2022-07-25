@@ -4,9 +4,7 @@
 <body>
   <div class="container">
     <h1>お店一覧表示ページ</h1>
-    <div class="float-end">
-      <a th:href="@{/user/new}" class="btn btn-primary">新規登録はこちら</a>
-    </div>
+    
     <table class="table table-striped">
       <thead>
         <tr>
@@ -16,6 +14,7 @@
           <th>住所</th>
           <th>席数</th>
           <th>電話番号</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +25,7 @@
           <td th:text="${user.address}"></td>
           <td th:text="${user.seats}"></td>
           <td th:text="${user.tel}"></td>
-          <td><a th:href="@{/user/detail}" class="btn btn-secondary">詳細</a></td>
+          <td><a th:href="@{/user/{id}/detail(id=${user.id})}" class="btn btn-secondary">詳細</a></td>
           <!-- <td><a th:href="@{/user/{id}(id=${user.id})}" class="btn btn-secondary">詳細</a></td> -->
         </tr>
       </tbody>
