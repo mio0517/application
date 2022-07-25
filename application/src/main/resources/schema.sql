@@ -8,8 +8,8 @@ CREATE TABLE `sample_db`.`list` (
   `seats` INTEGER,
   `opening` VARCHAR(255),
   `tel` VARCHAR(255),
-  `reservedcoustermerNo` INTEGER,
+  `countreserved` INTEGER,
   PRIMARY KEY (`id`));
 
-INSERT INTO `sample_db`.`list` (`id`, `name`, `genre`, `address`, `seats`, `opening`, `tel`, `reservedcoustermerNo`) VALUES ('1', '太郎', '中華', '東京都品川区1-1', '30', '9:00~21:00', '000-1111-2222', '0');
+INSERT INTO `sample_db`.`list` (`id`, `name`, `genre`, `address`, `seats`, `opening`, `tel`, `countreserved`) VALUES ('1', '太郎', '中華', '東京都品川区1-1', '30', '9:00~21:00', '000-1111-2222', '0');
 

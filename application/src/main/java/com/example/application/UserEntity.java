@@ -16,10 +16,11 @@ public class UserEntity {
   private String tel;
   private String opening;
   private Integer seats;
+  private Integer countreserved;
 
   public UserEntity() {}
 
-  public UserEntity(Integer id, String name, String genre, String address, String tel, String opening, Integer seats) {
+  public UserEntity(Integer id, String name, String genre, String address, String tel, String opening, Integer seats, Integer countreserved) {
     this.id = id;
     this.name = name;
     this.genre = genre;
@@ -27,6 +28,7 @@ public class UserEntity {
     this.tel = tel;
     this.opening = opening;
     this.seats = seats;
+    this.countreserved = countreserved;
   }
 
   public Integer getId() {
@@ -70,6 +72,12 @@ public class UserEntity {
   }
   public void setSeats(Integer seats) {
     this.seats = seats;
+  }
+  public Integer getCountreserved() {
+    return countreserved;
+  }
+  public void setCountreserved(Integer countreserved) {
+    this.countreserved = countreserved;
   }
 
 }
