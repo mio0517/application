@@ -1,3 +1,40 @@
-<h1>テスト</h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'お店一覧表示ページ')"></head>
+<body>
+  <div class="container">
+    <h1>お店一覧表示ページ</h1>
+    <div class="float-end">
+      <a th:href="@{/user/new}" class="btn btn-primary">新規登録はこちら</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>店名</th>
+          <th>ジャンル</th>
+          <th>住所</th>
+          <th>席数</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${userList}" class="align-middle">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.genre}"></td>
+          <td th:text="${user.address}"></td>
+          <td th:text="${user.seats}"></td>
+          <td th:text="${user.tel}"></td>
+          <td><a th:href="@{/user/detail}" class="btn btn-secondary">詳細</a></td>
+          <!-- <td><a th:href="@{/user/{id}(id=${user.id})}" class="btn btn-secondary">詳細</a></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
 
-<a th:href="@{/user/detail}" class="btn btn-primary">詳細画面へ</a>
+<!-- <h1>テスト</h1>
+
+<a th:href="@{/user/detail}" class="btn btn-primary">詳細画面へ</a> -->
