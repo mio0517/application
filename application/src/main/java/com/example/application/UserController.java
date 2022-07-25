@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,7 +54,7 @@ public class UserController {
     return "user/new";
   }
 
-  @GetMapping("user/create")
+  @PostMapping("user/create")
   public String usercreate(Model m,
   @RequestParam(name = "name1", required = false) String name1,
   @RequestParam(name = "date", required = false) String date,
@@ -72,21 +73,34 @@ public class UserController {
     user.setTime(time);
     user.setPeople(people);
     user.setTel1(tel1);
-   // userRepository2.save(user);
-    m.addAttribute("userData", user);
-   return"user/new";
+
+    System.out.println(user.getName1());
+    userRepository2.save(user);
+
+    // m.addAttribute("userData", user);
+   return"redirect:/user/show";
   }
 
 
-  @GetMapping("user/save")
-  public String save(Model m,
-  @ModelAttribute UserEntity user
-  ) {
-    m.addAttribute("user", user);
-    userRepository.save(user);
+  // @GetMapping("user/save")
+  // public String save(Model m,
+  // @ModelAttribute UserEntity user
+  // ) {
+  //   m.addAttribute("user", user);
+  //   userRepository.save(user);
 
-    return "redirect:/user/show";
-  }
+  //   return "redirect:/user/show";
+  // }
+
+  // @RequestMapping("user/save")
+  // public String save(Model m){
+
+  // List<UserEntity2> list = userRepository2.findAll();
+  //   m.addAttribute("userSave", list); 
+
+  //   return "user/save";
+
+  // }
 
   @RequestMapping("/user/userinfo")
   public String info(Model m){

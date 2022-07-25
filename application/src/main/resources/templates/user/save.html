@@ -1,1 +1,38 @@
-<h1>保存用ページ</h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'お店一覧表示ページ')"></head>
+<body>
+  <div class="container">
+    <h1>お店一覧表示ページ</h1>
+    <div class="float-end">
+      <a th:href="@{/user/new}" class="btn btn-primary">新規登録はこちら</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>日付</th>
+          <th>時間</th>
+          <th>人数</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${userSave}" class="align-middle">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name1}"></td>
+          <td th:text="${user.date}"></td>
+          <td th:text="${user.time}"></td>
+          <td th:text="${user.people}"></td>
+          <td th:text="${user.tel1}"></td>
+          <!-- <td><a th:href="@{/user/detail}" class="btn btn-secondary">詳細</a></td> -->
+          <!-- <td><a th:href="@{/user/{id}(id=${user.id})}" class="btn btn-secondary">詳細</a></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
+<!-- <h1>保存用ページ</h1> -->
