@@ -64,7 +64,7 @@ public class UserController {
     user.setTime(time);
     user.setPeople(people);
     user.setTel1(tel1);
-    //userRepository2.save(user);
+   // userRepository2.save(user);
 
    return"/new";
   }
