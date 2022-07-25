@@ -12,6 +12,7 @@
           <th>店名</th>
           <th>ジャンル</th>
           <th>住所</th>
+          <th>営業時間</th>
           <th>席数</th>
           <th>電話番号</th>
           <th></th>
@@ -23,6 +24,7 @@
           <td th:text="${user.name}"></td>
           <td th:text="${user.genre}"></td>
           <td th:text="${user.address}"></td>
+          <td th:text="${user.opening}"></td>
           <td th:text="${user.seats}"></td>
           <td th:text="${user.tel}"></td>
           <td><a th:href="@{/user/{id}/detail(id=${user.id})}" class="btn btn-secondary">詳細</a></td>
