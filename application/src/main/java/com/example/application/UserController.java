@@ -65,8 +65,8 @@ public class UserController {
     user.setPeople(people);
     user.setTel1(tel1);
    // userRepository2.save(user);
-
-   return"/new";
+    m.addAttribute("userData", user);
+   return"user/new";
   }
 
 
