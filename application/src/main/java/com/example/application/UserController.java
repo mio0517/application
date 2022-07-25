@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
   @Autowired
   private UserRepository userRepository;
+  private UserRepository2 userRepository2;
   @RequestMapping("/user/show")
   public String list(Model m){
 
@@ -43,6 +44,31 @@ public class UserController {
 
     return "/new";
   }  
+
+  @GetMapping("user/new")
+  public String usercreate(Model m,
+  @RequestParam(name = "name1", required = false) String name1,
+  @RequestParam(name = "date", required = false) String date,
+  @RequestParam(name = "time", required = false) String time,
+  @RequestParam(name = "people", required = false) Integer people,
+  @RequestParam(name = "tel1", required = false) String tel1
+  ) {
+    m.addAttribute("name1", name1);
+    m.addAttribute("date", date);
+    m.addAttribute("time", time);
+    m.addAttribute("people", people);
+    m.addAttribute("tel1", tel1);
+    UserEntity2 user = new UserEntity2();
+    user.setName1(name1);
+    user.setDate(date);
+    user.setTime(time);
+    user.setPeople(people);
+    user.setTel1(tel1);
+    //userRepository2.save(user);
+
+   return"/new";
+  }
+
 
   @GetMapping("/user/save")
   public String save(Model m,
