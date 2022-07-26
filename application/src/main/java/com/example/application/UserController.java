@@ -58,18 +58,21 @@ public class UserController {
 
   @PostMapping("user/create")
   public String usercreate(Model m,
+  @RequestParam(name = "store", required = false) String store,
   @RequestParam(name = "name1", required = false) String name1,
   @RequestParam(name = "date", required = false) String date,
   @RequestParam(name = "time", required = false) String time,
   @RequestParam(name = "people", required = false) Integer people,
   @RequestParam(name = "tel1", required = false) String tel1
   ) {
+    m.addAttribute("store", store);
     m.addAttribute("name1", name1);
     m.addAttribute("date", date);
     m.addAttribute("time", time);
     m.addAttribute("people", people);
     m.addAttribute("tel1", tel1);
     UserEntity2 user = new UserEntity2();
+    user.setStore(store);
     user.setName1(name1);
     user.setDate(date);
     user.setTime(time);

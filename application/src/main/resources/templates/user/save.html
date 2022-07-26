@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>店名</th>
           <th>名前</th>
           <th>日付</th>
           <th>時間</th>
@@ -21,6 +22,7 @@
       <tbody>
         <tr th:each="user : ${userSave}" class="align-middle">
           <td th:text="${user.id}"></td>
+          <td th:text="${user.store}"></td>
           <td th:text="${user.name1}"></td>
           <td th:text="${user.date}"></td>
           <td th:text="${user.time}"></td>

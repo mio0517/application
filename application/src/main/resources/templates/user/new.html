@@ -6,6 +6,11 @@
 <body>
   <div class="container">
     <h1>登録</h1>
+    <div class="form-group">
+      <label>店名<span class="text-danger">※</span></label>
+      <input type="text" th:field="*{store}" class="form-control">
+    </div>
+  
     <form th:action="@{/user/create}" th:object="${userData}" th:method="post">
       <div class="form-group">
         <label>名前：<span class="text-danger">※</span></label>
