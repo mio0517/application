@@ -1,5 +1,6 @@
 package com.example.application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class UserController {
   public String detail(Model m,
   @PathVariable Integer id) {
 
-    UserEntity list =userRepository.findById(id).get();
+    UserEntity list = userRepository.findById(id).get();
     m.addAttribute("userInfo", list);
 
     return "user/detail";
@@ -100,9 +101,12 @@ public class UserController {
 
   @RequestMapping("user/{id}/save")
   public String save(Model m,
-  @PathVariable Integer id){
+  @PathVariable(name = "id", required = false) int id){
+    List<Integer> ids = new ArrayList<Integer>();
 
-  List<UserEntity2> list = userRepository2.findAll();
+    ids.add(id);
+    List<UserEntity2> list = userRepository2.findAllById(ids);
+
     m.addAttribute("userSave", list); 
 
     return "user/save";
