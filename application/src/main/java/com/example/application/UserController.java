@@ -52,6 +52,7 @@ public class UserController {
   public String usernew(Model m) {
 
     m.addAttribute("userData", new UserEntity2());
+    m.addAttribute("userList", userRepository.findAll());
 
     return "user/new";
   }
@@ -97,8 +98,9 @@ public class UserController {
   //   return "redirect:/user/show";
   // }
 
-  @RequestMapping("user/save")
-  public String save(Model m){
+  @RequestMapping("user/{id}/save")
+  public String save(Model m,
+  @PathVariable Integer id){
 
   List<UserEntity2> list = userRepository2.findAll();
     m.addAttribute("userSave", list); 

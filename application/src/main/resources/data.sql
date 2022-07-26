@@ -11,4 +11,4 @@ CREATE TABLE `sample_db`.`info` (
   `favorite` INTEGER,
   PRIMARY KEY (`id`));
 
-  INSERT INTO `sample_db`.`info` (`id`, `name1`, `store`, `date`, `time`, `people`, `tel1`, `favorite`) VALUES ('1', 'あああ',  '太郎', '7/19', '18:00~', '5', '111-222-3333', '1');
+  INSERT INTO `sample_db`.`info` (`id`, `name1`, `store`, `date`, `time`, `people`, `tel1`, `favorite`) VALUES ('1', 'あああ',  'サイゼリヤ', '7/19', '18:00~', '5', '111-222-3333', '1');
