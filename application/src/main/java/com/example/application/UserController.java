@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -52,13 +51,14 @@ public class UserController {
   @RequestMapping("user/new")
   public String usernew(Model m) {
 
+    
     m.addAttribute("userData", new UserEntity2());
     m.addAttribute("userList", userRepository.findAll());
 
     return "user/new";
   }
 
-  @PostMapping("user/create")
+  @RequestMapping("user/create")
   public String usercreate(Model m,
   @RequestParam(name = "store", required = false) String store,
   @RequestParam(name = "name1", required = false) String name1,
@@ -66,6 +66,7 @@ public class UserController {
   @RequestParam(name = "time", required = false) String time,
   @RequestParam(name = "people", required = false) Integer people,
   @RequestParam(name = "tel1", required = false) String tel1
+ 
   ) {
     m.addAttribute("store", store);
     m.addAttribute("name1", name1);
@@ -73,6 +74,8 @@ public class UserController {
     m.addAttribute("time", time);
     m.addAttribute("people", people);
     m.addAttribute("tel1", tel1);
+    m.addAttribute("countreserved", people);
+    UserEntity userA = userRepository.findByName(store);
     UserEntity2 user = new UserEntity2();
     user.setStore(store);
     user.setName1(name1);
@@ -80,9 +83,11 @@ public class UserController {
     user.setTime(time);
     user.setPeople(people);
     user.setTel1(tel1);
+    userA.setCountreserved(people);
 
     System.out.println(user.getName1());
     userRepository2.save(user);
+    userRepository.save(userA);
 
     // m.addAttribute("userData", user);
    return"redirect:/user/show";

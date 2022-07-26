@@ -6,7 +6,7 @@
 <body>
   <div class="container">
     <h1>登録</h1>
-    <form th:action="@{/user/create}" th:object="${userData}" th:method="post">
+    <form th:action="@{/user/create}" th:object="${userData}" th:method="get">
       <div class="form-group">
         <label>店名<span class="text-danger">※</span></label> <br>
         <select name="store">          

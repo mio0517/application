@@ -14,6 +14,7 @@
           <th>住所</th>
           <th>営業時間</th>
           <th>席数</th>
+          <th>予約数</th>
           <th>電話番号</th>
           <th></th>
         </tr>
@@ -26,6 +27,7 @@
           <td th:text="${user.address}"></td>
           <td th:text="${user.opening}"></td>
           <td th:text="${user.seats}"></td>
+          <td th:text="${user.countreserved}"></td>
           <td th:text="${user.tel}"></td>
           <td><a th:href="@{/user/{id}/detail(id=${user.id})}" class="btn btn-secondary">詳細</a></td>
           <!-- <td><a th:href="@{/user/{id}(id=${user.id})}" class="btn btn-secondary">詳細</a></td> -->
