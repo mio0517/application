@@ -74,10 +74,11 @@ public class UserController {
 
   @RequestMapping("user/create")
   public String usercreate(Model m,
-  @RequestParam(name = "store", required = false) String store,
+  @RequestParam(name = "store", required = false) Integer store,
   @RequestParam(name = "name1", required = false) String name1,
   @RequestParam(name = "date", required = false) String date,
   @RequestParam(name = "time", required = false) String time,
+  @RequestParam(name = "countreserved", required = false) Integer countreserved,
   @RequestParam(name = "people", required = false) Integer people,
   @RequestParam(name = "tel1", required = false) String tel1
  
@@ -89,7 +90,7 @@ public class UserController {
     m.addAttribute("people", people);
     m.addAttribute("tel1", tel1);
     m.addAttribute("countreserved", people);
-    UserEntity userA = userRepository.findByName(store);
+    UserEntity userA = userRepository.findById(store).get();
     UserEntity2 user = new UserEntity2();
     user.setStore(store);
     user.setName1(name1);
@@ -97,7 +98,7 @@ public class UserController {
     user.setTime(time);
     user.setPeople(people);
     user.setTel1(tel1);
-    userA.setCountreserved(people);
+    userA.setCountreserved(userA.getCountreserved() + people);
 
     System.out.println(user.getName1());
     userRepository2.save(user);
@@ -120,12 +121,9 @@ public class UserController {
 
   @RequestMapping("user/{id}/save")
   public String save(Model m,
-  @PathVariable(name = "id", required = false) int id){
-    List<Integer> ids = new ArrayList<Integer>();
-
-    ids.add(id);
-    List<UserEntity2> list = userRepository2.findAllById(ids);
-
+  @PathVariable(name = "id", required = false) Integer id){
+  
+    List<UserEntity2> list = userRepository2.findByStore(id);
     m.addAttribute("userSave", list); 
 
     return "user/save";
@@ -141,4 +139,5 @@ public class UserController {
     return "user/userinfo";
 
   }
+  
 }

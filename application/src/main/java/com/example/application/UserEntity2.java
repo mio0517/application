@@ -15,7 +15,7 @@ public class UserEntity2 {
 
   private Integer id;
   private String name1;
-  private String store;
+  private Integer store;
   private String date;
   private String time;
   private Integer people;
@@ -25,7 +25,7 @@ public class UserEntity2 {
   public UserEntity2() {
   }
 
-  public UserEntity2(Integer id, String name1, String store, String date, String time, Integer people, String tel1,
+  public UserEntity2(Integer id, String name1, Integer store, String date, String time, Integer people, String tel1,
       Integer favorite) {
     this.id = id;
     this.name1 = name1;
@@ -53,11 +53,11 @@ public class UserEntity2 {
     this.name1 = name1;
   }
 
-  public String getStore() {
+  public Integer getStore() {
     return store;
   }
 
-  public void setStore(String store) {
+  public void setStore(Integer store) {
     this.store = store;
   }
 

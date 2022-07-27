@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/head :: head_fragment(title = 'お店一覧表示ページ')"></head>
+
+<style>
+  body {
+    background-image: url(/images/healthy.jpg);
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: cover;
+    background-repeat:  no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    }
+  </style>
+  
 <body>
+  
+  
   <div class="container">
     <h1>お店一覧表示ページ</h1>
     <div>
@@ -31,7 +46,7 @@
           <td th:text="${user.address}"></td>
           <td th:text="${user.opening}"></td>
           <td th:text="${user.seats}"></td>
-          <td th:text="${user.countreserved}"></td>
+          <td th:text="${user.seats - user.countreserved}"></td>
           <td th:text="${user.tel}"></td>
           <td><a th:href="@{/user/{id}/detail(id=${user.id})}" class="btn btn-secondary">お店の詳細</a></td>
           <!-- <td><a th:href="@{/user/{id}(id=${user.id})}" class="btn btn-secondary">詳細</a></td> -->
