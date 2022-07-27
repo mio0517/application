@@ -38,8 +38,13 @@
   </div>
   <br />
   <div class="text-center">
-      <a th:href="@{/user/new}" class="btn btn-primary">　予約はこちら　</a>
-      <a th:href="@{/user/{id}/save(id=${userInfo.id})}" class="btn btn-secondary">現時点の予約一覧へ</a>
+      <span th:if="${key1 == 'ユーザー'}">
+        <a th:href="@{/user/new}" class="btn btn-primary">　予約はこちら　</a>
+      </span>
+      <span th:if="${key1 == 'オーナー'}">
+        <a th:href="@{/user/{id}/save(id=${userInfo.id})}" class="btn btn-secondary">現時点の予約一覧へ</a>
+      </span>
+      
       <a href="/user/show" class="btn btn-secondary">お店一覧に戻る</a>
   </div>
 </div>

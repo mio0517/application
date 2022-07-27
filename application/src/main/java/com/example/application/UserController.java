@@ -25,10 +25,11 @@ public class UserController {
   private UserRepository2 userRepository2;
   @RequestMapping("user/show")
   public String list(Model m,
-  HttpServletResponse httpServletResponse
+  HttpServletResponse httpServletResponse,
+  @RequestParam(name = "key1", required = false) String value
   ){
 
-    httpServletResponse.addCookie(new Cookie("key1", "value1"));
+    httpServletResponse.addCookie(new Cookie("key1", value));
 
     List<UserEntity> list = userRepository.findAll();
     m.addAttribute("userList", list); 
@@ -44,6 +45,7 @@ public class UserController {
   ) {
 
     System.out.println(cookieValue);
+    m.addAttribute("key1", cookieValue);
 
     UserEntity list = userRepository.findById(id).get();
     m.addAttribute("userInfo", list);
