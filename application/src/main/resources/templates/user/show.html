@@ -16,13 +16,28 @@
   
 <body>
   
-  
   <div class="container">
-    <h1>お店一覧表示ページ</h1>
+    <br>
     <div>
-    <a th:href="@{/user/show?key1=ユーザー}" class="btn btn-primary">　ユーザーログイン　</a>
-    <a th:href="@{/user/show?key1=オーナー}" class="btn btn-primary">　オーナーログイン　</a>
+      <a th:href="@{/user/show?key1=ユーザー}" class="btn btn-primary">　ユーザーログイン　</a>　
+      <a th:href="@{/user/show?key1=オーナー}" class="btn btn-success">　オーナーログイン　</a>
     </div>
+    <br>
+    <h1>お店一覧表示ページ</h1>
+    <br>
+    <form th:action="@{/user/show}" th:method="get">
+      <table class="table table-bordered">
+        <tr>
+          <th><h4>店舗検索</h4></th>
+          <td><input type="text" name="search" class="form-control"></td>
+        </tr>
+      </table>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary" >検索</button>
+        <a href="/user/show" class="btn btn-secondary">クリア</a>
+      </div>
+    </form>  
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>
