@@ -3,9 +3,13 @@ package com.example.application;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,9 +24,13 @@ public class UserController {
   @Autowired
   private UserRepository2 userRepository2;
   @RequestMapping("user/show")
-  public String list(Model m){
+  public String list(Model m,
+  HttpServletResponse httpServletResponse
+  ){
 
-  List<UserEntity> list = userRepository.findAll();
+    httpServletResponse.addCookie(new Cookie("key1", "value1"));
+
+    List<UserEntity> list = userRepository.findAll();
     m.addAttribute("userList", list); 
 
     return "user/show";
@@ -31,7 +39,11 @@ public class UserController {
 
   @RequestMapping("user/{id}/detail")
   public String detail(Model m,
-  @PathVariable Integer id) {
+  @PathVariable Integer id,
+  @CookieValue(name = "key1", required = false) String cookieValue
+  ) {
+
+    System.out.println(cookieValue);
 
     UserEntity list = userRepository.findById(id).get();
     m.addAttribute("userInfo", list);
