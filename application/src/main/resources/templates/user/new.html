@@ -5,7 +5,7 @@
   th:replace="common/head :: head_fragment(title = '登録')"></head>
 <body>
   <div class="container">
-    <h1>登録</h1>
+    <h1>予約登録</h1>
     <form th:action="@{/user/create}" th:object="${userData}" th:method="get">
       <div class="form-group">
         <label>店名<span class="text-danger">※</span></label> <br>
@@ -37,7 +37,7 @@
       <br />
       <div class="text-center">
         <a href="/user/show" class="btn btn-secondary">キャンセル</a>
-        <input type="submit" value="　登録　" class="btn btn-primary">
+        <input type="submit" value="　予約登録する　" class="btn btn-primary">
       </div>
     </form>
   </div>
