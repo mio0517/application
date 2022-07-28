@@ -121,6 +121,11 @@ public class UserController {
     List<UserEntity2> list = userRepository2.findByStore(id);
     m.addAttribute("userSave", list);
 
+    // 店舗情報の取得
+    UserEntity user = userRepository.findById(id).get();
+    m.addAttribute("user", user);
+
+
     return "user/save";
 
   }

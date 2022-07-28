@@ -3,7 +3,7 @@
 <head th:replace="common/head :: head_fragment(title = 'お店一覧表示ページ')"></head>
 <body>
   <div class="container">
-    <h1>予約者一覧表示ページ</h1>
+    <h1 th:text="|予約一覧 ${user.name}|"></h1>
     <div class="float-end">
       <a th:href="@{/user/show}" class="btn btn-primary">戻る</a>
     </div>
@@ -11,7 +11,6 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>店名</th>
           <th>名前</th>
           <th>日付</th>
           <th>時間</th>
@@ -22,7 +21,6 @@
       <tbody>
         <tr th:each="user : ${userSave}" class="align-middle">
           <td th:text="${user.id}"></td>
-          <td th:text="${user.store}"></td>
           <td th:text="${user.name1}"></td>
           <td th:text="${user.date}"></td>
           <td th:text="${user.time}"></td>
