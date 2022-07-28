@@ -5,16 +5,17 @@
   <div class="container">
     <h1>お店の詳細</h1>
     <div th:object="${userInfo}">
-      <div class="row mx-md-n5">
-        <div class="col-2 pt-3 border bg-light">ID</div>
-        <div class="col pt-3 border">
-          <p th:text="*{id}"></p>
-        </div>
-      </div>
+      
       <div class="row mx-md-n5">
         <div class="col-2 pt-3 border bg-light">名前</div>
         <div class="col pt-3 border">
           <p th:text="*{name}"></p>
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">ジャンル</div>
+        <div class="col pt-3 border">
+          <p th:text="*{genre}"></p>
         </div>
       </div>
       <div class="row mx-md-n5">
@@ -33,6 +34,18 @@
       <div class="col-2 pt-3 border bg-light">営業時間</div>
       <div class="col pt-3 border">
         <p th:text="*{opening}"></p>
+      </div>
+    </div>
+    <div class="row mx-md-n5">
+      <div class="col-2 pt-3 border bg-light">席数</div>
+      <div class="col pt-3 border">
+        <p th:text="*{seats}"></p>
+      </div>
+    </div>
+    <div class="row mx-md-n5">
+      <div class="col-2 pt-3 border bg-light">残席数</div>
+      <div class="col pt-3 border">
+        <p th:text="*{seats - countreserved}"></p>
       </div>
     </div>
   </div>
