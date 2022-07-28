@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head :: head_fragment(title = 'お店一覧表示ページ')"></head>
+<head th:replace="common/head :: head_fragment(title = 'お店一覧')"></head>
 
 <style>
   body {
@@ -23,7 +23,7 @@
       <a th:href="@{/user/show?key1=オーナー}" class="btn btn-success">　オーナーログイン　</a>
     </div>
     <br>
-    <h1>お店一覧表示ページ</h1>
+    <h1>お店一覧</h1>
     <br>
     <form th:action="@{/user/show}" th:method="get">
       <table class="table table-bordered">
@@ -49,8 +49,8 @@
           <th>席数</th>
           <th>残席数</th>
           <th>電話番号</th>
-          <th>予約の方は <br>
-            【お店の詳細】➡【予約はこちら】</th>
+          <th>詳細 <br>
+            ※予約は【お店の詳細】から</th>
         </tr>
       </thead>
       <tbody>
